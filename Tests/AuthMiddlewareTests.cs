@@ -45,7 +45,7 @@ public class AuthMiddlewareTests
         Assert.Equal(401, context.Response.StatusCode);
     }
 
-    // only password provided -> not authorized
+    // correct username and password -> authorized
     [Fact]
     public async Task Middleware_Should_ReturnAuthorized_When_CorrectCredentials()
     {
@@ -57,7 +57,7 @@ public class AuthMiddlewareTests
         Assert.Equal(200, context.Response.StatusCode);
     }
     
-    // wrong username -> not authorized
+    // wrong username and password -> not authorized
     [Fact]
     public async Task Middleware_Should_ReturnNotAuthorized_When_WrongCredentials()
     {
